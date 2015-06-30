@@ -39,6 +39,14 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
+
+                {!! Form::open(['route' => 'api.users.store']) !!}
+
+                {!! Form::text('username') !!}
+                {!! Form::password('password') !!}
+                {!! Form::submit() !!}
+
+                {!! Form::close() !!}
             </div>
         </div>
     </body>

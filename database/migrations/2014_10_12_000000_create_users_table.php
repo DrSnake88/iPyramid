@@ -14,9 +14,20 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('username')->unique();
             $table->string('password', 60);
+            $table->string('personalCode');
+            $table->integer('numFirstLevel-referrals')->default(0);
+            $table->integer('totalOther-referrals')->default(0);
+            $table->string('referrerCode')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('balance')->default(0);
+            $table->integer('totalEarnings')->default(0);
+            $table->boolean('active');
+            $table->date('accountExpirationDate');
+            $table->string('securityQuestion')->nullable();
+            $table->string('country')->nullable();
+            $table->char('gender')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
